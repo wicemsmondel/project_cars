@@ -10,13 +10,13 @@ var usersRouter = require('./routes/users');
 var mysql = require('mysql');
 
 //Creating connection with MySQL database
-var con = mysql.createConnection({
+var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'admin',
     database: 'project_cars',
 });
-con.connect(function(err) {
+connection.connect(function(err) {
     if (err) throw err;
     console.log('Connected to database');
     // var sql = "SELECT * FROM t_users";
