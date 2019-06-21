@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2a3b73b180.js"></script>
+    <link rel="stylesheet" href="style.css" rel="stylesheet">
+    <title>Project Cars</title>
+</head>
+
+<body>
+    <div class="login-background">
+        <header>
+            <div>
+                <a href="index.html"><img src="images/logo.jpg" alt="logo" id="logo"></a>
+            </div>
+            <nav>
+                <div class="menu-icon">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+                <ul>
+                    <li><a id="homepagebtn" href="index.html">ACCUEIL</a></li>
+                    <li><a id="carstbtn" href="#">ANNONCES</a></li>
+                    <li><a id="aboutbtn" href="#">A PROPOS</a></li>
+                    <li><a href="login.html" class="btn btn-danger"><span style="padding-right:5px;"
+                                class="fa fa-lock"></span>CONNEXION</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="form-popup" id="myForm">
+            <form class=" form-container">
+                <h2>Créer votre compte</h2>
+                <input id="client_firstname" type="text" placeholder="Prénom" name="prenom" required>
+                <input id="client_name" type="text" placeholder="Nom" name="nom" required>
+                <input id="client_mail" type="text" placeholder="Email" name="email" required>
+                <input id="client_password" type="password" placeholder="Mot de passe" name="psw" required>
+                <input id="client_password" type="passwordConfirm" placeholder="Confirmation mot de passe" name="psw" required>
+                <button type="submit" class="btn" onclick="newClient()">Créer votre compte</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer1">
+            <p>POWERED BY WICEM</p>
+            <img src="/images/logo_simplon.png" alt="logo simplon" class="logo_simplon">
+        </div>
+    </footer>
+    <script src="front.js"></script>
+</body>
+
+</html>
