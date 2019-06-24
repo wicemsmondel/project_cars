@@ -39,4 +39,16 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
+app.get('/register', function(request, response) {
+    // var sql('SELECT * FROM project_cars.t_users;', function(error, data) {
+    response.send(data);
+});
+
+
+app.post('/register', function(request, response) {
+    console.log(request.body.client_name);
+    var sql = ('INSERT INTO project_cars.t_users (user_email, user_password) VALUES(?, ?)', request.body.user_mail, request.body.user_password);
+    response.send(data);
+})
+
 module.exports = app;
