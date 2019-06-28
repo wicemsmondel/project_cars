@@ -5,12 +5,12 @@
         
 			<img class="background-image" src="images/car_dealer3nb.png">
 		<% if (typeof error !=='undefined'){ %><h3><%= error%></h3><% } %>
-        <div id="myForm" class="form-popup">
-            <form class=" form-container">
+        <div id="myForm" class="form-popup" action="/login">
+            <form class=" form-container" method="POST">
                 <h2>Connectez-vous</h2>
 
-                <input id="client_mail" type="text" placeholder="Email" name="email" required>
-                <input id="client_password" type="password" placeholder="Mot de passe" name="password" required>
+                <input type="text" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Mot de passe" name="password" required>
                 <button type="submit" class="btn">Valider</button>
                 <a href="/register" class="btn cancel" href>Pas encore de compte ?</a>
         </div>
