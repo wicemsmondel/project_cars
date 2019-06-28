@@ -1,31 +1,19 @@
 <!-- views/login.ejs -->
-<!doctype html>
-<html>
-<head>
-	<title>Login</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> 
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> 
-	<style>
-		body 		{ padding-top:80px; background-color: grey; }
-	</style>
-</head>
-<body>
-<div class="container">
-<% if (typeof error !=='undefined'){ %>
-    <h3><%= error%></h3>
-<% } %>
+<% include partials/header %>
 
-	<div class="jumbotron text-center">
-		<h1><span class="fa fa-lock"></span> Login</h1>
+    <div class="login-background" >
+        
+			<img class="background-image" src="images/car_dealer3nb.png">
+		<% if (typeof error !=='undefined'){ %><h3><%= error%></h3><% } %>
+        <div id="myForm" class="form-popup">
+            <form class=" form-container">
+                <h2>Connectez-vous</h2>
 
-		<p>Login with:</p>
-        <form class="form-group" method="post">
-        <input type="text" name="email" placeholder="Votre email">
-        <input type="password" name="password" placeholder="Votre mot de passe">
-        <input type= "submit">
-		</form>
-	</div>
+                <input id="client_mail" type="text" placeholder="Email" name="email" required>
+                <input id="client_password" type="password" placeholder="Mot de passe" name="password" required>
+                <button type="submit" class="btn">Valider</button>
+                <a href="/register" class="btn cancel" href>Pas encore de compte ?</a>
+        </div>
+    </div>
 
-</div>
-</body>
-</html>
+<% include partials/footer %>
