@@ -4,9 +4,10 @@
     <div class="login-background">
         
         <img class="background-image" src="images/car_dealer3nb.png">
-        <% if (typeof error !=='undefined'){ %><h3><%= error%></h3><% } %>
+        <!-- <% if (typeof error !=='undefined'){ %><h3><%= error%></h3><% } %> -->
         <div class="form-popup" id="myForm">
             <form class=" form-container" method="post" action="/register">
+                <% if (typeof error !=='undefined'){ %><h4 style="color: red"><%= error%></h4><% } %>               
                 <h2>Créer votre compte</h2>
                 <input type="text" placeholder="Prénom" name="firstname" required>
                 <input type="text" placeholder="Nom" name="lastname" required>

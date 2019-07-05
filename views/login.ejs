@@ -1,19 +1,18 @@
 <!-- views/login.ejs -->
 <% include partials/header %>
 
-    <div class="login-background" >
-        
-			<img class="background-image" src="images/car_dealer3nb.png">
-		<% if (typeof error !=='undefined'){ %><h3><%= error%></h3><% } %>
-        <div id="myForm" class="form-popup" action="/login">
-            <form class=" form-container" method="POST">
-                <h2>Connectez-vous</h2>
+<div class="login-background">
 
-                <input type="text" placeholder="Email" name="email" required>
-                <input type="password" placeholder="Mot de passe" name="password" required>
-                <button type="submit" class="btn">Valider</button>
-                <a href="/register" class="btn cancel" href>Pas encore de compte ?</a>
-        </div>
+    <img class="background-image" src="images/car_dealer3nb.png">
+    <div id="myForm" class="form-popup" action="/login">
+        <form class=" form-container" method="POST">
+            <% if (typeof error !=='undefined'){ %><h4 style="color: red"><%= error%></h4><% } %>
+            <h2>Connectez-vous</h2>
+            <input type="text" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Mot de passe" name="password" required>
+            <button type="submit" class="btn">Valider</button>
+            <a href="/register" class="btn cancel" href>Pas encore de compte ?</a>
     </div>
+</div>
 
 <% include partials/footer %>

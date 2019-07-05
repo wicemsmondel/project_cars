@@ -17,7 +17,6 @@ body {
 nav {
     position: fixed;
     width: 100%;
-    /* background-color: #555; */
     z-index: 9998;
 }
 
@@ -201,18 +200,44 @@ footer {
     box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
+#carrosserie {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+
+}
 .search-form ul li {
     list-style-type: none;
-    display: inline-block;
+   
     justify-items: center;
     align-items: center;
-    margin: 35px 25px 0px;
+    margin: 55px 35px 0px;
+    font-size: 12px;
+    /* padding-top: 50px;
+    background: no-repeat left top;
+    background-color: transparent;
+    background-size: 200% auto;
+    padding-left: 0;
+    text-transform: uppercase;
+    border: 0;
+    color: #a5a5a5; */
 }
 
-.search-form img {
+.search-form ul li img {
     height: 40px;
     width: 120px;
+    margin-top: -40px;
     margin-left: -20px;
+    position: absolute;
+    /* backface-visibility: unset; */
+}
+
+.red {
+    display: none;
+}
+.red.active {
+    display: block;
 }
 
 .carousel-desktop {
@@ -293,11 +318,12 @@ ul {
     .search-form ul li {
         list-style-type: none;
         display: inline-block;
-        margin: 35px 40px 0px;
+        margin: 80px 70px 0px 60px;
     }
-    .search-form img {
+    .grey, .red {
         height: 50px;
-        width: 130px;
+        width: 170px;
+        margin-top: -50px;
     }
     .form-popup {
         top: 30%;
@@ -324,14 +350,25 @@ ul {
     }
     .search-form ul li {
         display: inline-block;
-        margin: 25px 4px 0px 0px;
+        margin: 40px 4px 0px 25px;
         font-size: 10px;
     }
-    .search-form img {
+    .search-form ul li img {
         height: 20px;
         width: 55px;
-        margin-left: -5px;
+        margin-left: -10px;
+        margin-top: -25px;
     }
+    /* .search-form ul li {
+        list-style-type: none;
+        display: inline-block;
+        margin: 80px 70px 0px 60px;
+    }
+    .grey, .red {
+        height: 50px;
+        width: 170px;
+        margin-top: -50px;
+    } */
     .brand-model-wrapper {
         display: block;
         text-align: center;
@@ -351,6 +388,10 @@ ul {
     }
     .carousel-desktop {
         display: none;
+    }
+
+    .brand-title{
+        margin-top: -150px;
     }
     .brand-container a {
         margin: 20px 1px;

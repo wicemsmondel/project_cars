@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var user = require('../models/userModel')
+var user = require('../models/userModel');
 var indexController = require('../controller/indexController');
+var session = require('express-session');
 
 
 // GET pages
