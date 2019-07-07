@@ -16,19 +16,13 @@ $(document).on("scroll", function() {
     }
 });
 
-// $(".red").hide(onclick);
-// $(".red").show(onclick);
 
-// $(document).on("click", function() {
-//     if ($(document).click()) {
-//         $('img .red').addClass('red');
-//     } else {
-//         $('img .red').removeClass('black');
-//     }
-// });
 
-$('.checkBox label img').on('click', function(){
-    $('.checkBox label img.red').toggleClass('active');
+$('.checkBox label img').on('click', function() {
+    if ($(this).hasClass('active'))
+        $(this).toggleClass('active');
+    else
+        $(this).next().toggleClass('active');
 });
 
 // $('red.active').removeClass('active');
@@ -39,3 +33,14 @@ $('.checkBox label img').on('click', function(){
 //        $("[id^=checkBox label img]").toggleClass('red');
 //     });
 //  });
+
+// $(".red").hide(onclick);
+// $(".red").show(onclick);
+
+// $(document).on("click", function() {
+//     if ($(document).click()) {
+//         $('img .red').addClass('red');
+//     } else {
+//         $('img .red').removeClass('black');
+//     }
+// });

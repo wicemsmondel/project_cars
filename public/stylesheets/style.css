@@ -23,9 +23,9 @@ nav {
 nav ul {
     line-height: 93px;
     list-style: none;
-    background: rgba(0, 0, 0, 0);
+    background: rgb(0, 0, 0, 0);
     overflow: hidden;
-    color: #fff;
+    color: #f1f1f1;
     text-align: center;
     margin: 0;
     transition: 1s;
@@ -43,15 +43,15 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: #f1f1f1;
     font-size: 18px;
     padding: 20px;
 }
 
 nav li a:hover,
 .btn-danger:hover {
-    background-color: red;
-    color: #f1f1f1;
+    background-color: #ff0000;
+    color: #fff;
     border-radius: 5px;
     text-decoration: none;
     /* padding: 30px; */
@@ -92,7 +92,7 @@ footer {
 }
 
 .btn-danger {
-    color: white;
+    color: #fff;
     padding: 20px;
     cursor: pointer;
     opacity: 0.8;
@@ -105,7 +105,8 @@ footer {
     z-index: 2;
 }
 
-.form-popup {
+.form-popup,
+.add-player-form {
     display: block;
     position: fixed;
     top: 250px;
@@ -116,7 +117,7 @@ footer {
 .form-container {
     max-width: 500px;
     padding: 10px;
-    background-color: hsla(0, 0%, 87%, .8);
+    background-color: #e0e0e0;
     /* opacity: ; */
 }
 
@@ -125,7 +126,7 @@ footer {
     padding-top: 15px;
     margin: 5px 0 22px 0;
     border: none;
-    background: #f1f1f1;
+    background: #fff;
 }
 
 .form-container input[type=text]:focus,
@@ -134,8 +135,8 @@ footer {
 }
 
 .form-container .btn {
-    background-color: green;
-    color: white;
+    background-color: blue;
+    color: #f1f1f1;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
@@ -145,7 +146,7 @@ footer {
 }
 
 .form-container .cancel {
-    background-color: red;
+    background-color: #ff0000;
 }
 
 .form-container .btn:hover,
@@ -193,7 +194,7 @@ footer {
 }
 
 .search-form {
-    background-color: rgba(211, 211, 211, 0.411);
+    background-color: #e0e0e0;
     max-width: 1800px;
     margin: 40px auto 20px auto;
     width: 90%;
@@ -204,12 +205,10 @@ footer {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-
-
 }
+
 .search-form ul li {
     list-style-type: none;
-   
     justify-items: center;
     align-items: center;
     margin: 55px 35px 0px;
@@ -236,6 +235,7 @@ footer {
 .red {
     display: none;
 }
+
 .red.active {
     display: block;
 }
@@ -320,7 +320,8 @@ ul {
         display: inline-block;
         margin: 80px 70px 0px 60px;
     }
-    .grey, .red {
+    .grey,
+    .red {
         height: 50px;
         width: 170px;
         margin-top: -50px;
@@ -389,8 +390,7 @@ ul {
     .carousel-desktop {
         display: none;
     }
-
-    .brand-title{
+    .brand-title {
         margin-top: -150px;
     }
     .brand-container a {

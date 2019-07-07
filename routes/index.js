@@ -20,4 +20,7 @@ router.route('/register')
 router.route('/logout')
     .get(indexController.logout);
 
+router.route('/admin')
+    .get(indexController.admin);
+
 module.exports = router;
