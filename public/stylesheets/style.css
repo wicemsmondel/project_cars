@@ -133,9 +133,12 @@ footer {
 .form-container input[type=password]:focus {
     background-color: #ddd;
 }
+#checkboxCGU{
+    width: auto;
+}
 
 .form-container .btn {
-    background-color: blue;
+    background-color: #008000;
     color: #f1f1f1;
     padding: 16px 20px;
     border: none;
@@ -330,6 +333,9 @@ ul {
         top: 30%;
         left: 25%;
     }
+    .preview-title {
+        margin-top: -60px;
+    }
 }
 
 @media (max-device-width: 600px) {
@@ -387,8 +393,9 @@ ul {
         font-size: 12px;
         padding: 10px;
     }
-    .carousel-desktop {
-        display: none;
+    #desktopCarousel {
+        margin-top: -40px;
+        /* display: none; */
     }
     .brand-title {
         margin-top: -150px;
@@ -396,4 +403,13 @@ ul {
     .brand-container a {
         margin: 20px 1px;
     }
+    .preview-title {
+        margin-top: -80px;
+    }
+    .preview-title h2 {
+       font-size: 20px;
+    }
+    .preview-title h3 {
+        font-size: 15px;
+     }
 }

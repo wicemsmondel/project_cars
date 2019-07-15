@@ -17,7 +17,8 @@ $(document).on("scroll", function() {
 });
 
 
-
+//checkbox image switching color
+ 
 $('.checkBox label img').on('click', function() {
     if ($(this).hasClass('active'))
         $(this).toggleClass('active');

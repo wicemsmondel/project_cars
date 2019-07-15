@@ -8,5 +8,4 @@ const connection = mysql.createConnection({
 });
 
 console.log('db connected')
-    // Export DB connection (to the models)
 module.exports = connection;

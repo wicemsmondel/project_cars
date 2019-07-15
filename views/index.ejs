@@ -3,6 +3,7 @@
 
 <% if (typeof error !=='undefined'){ %><h3><%= error%></h3><% } %>
 
+
 <!-- caroussel -->
 <div id="carouselLanding" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
     <!-- Indicators -->
@@ -34,7 +35,9 @@
     </a>
 </div>
 <% if (typeof error !=='undefined'){ %><h4 style="color: red"><%= error%></h4><% } %>
-
+<% for (let i = 0; i < data.length; i++) {%>
+    <p><%= data[i].car_model%></p>
+<% }%>
 <div class="search-form">
     <div class="versions">
         <form id="w1" action="versions/search" method="get"> <input type="hidden" name="expand" value="1" />
@@ -79,9 +82,9 @@
                 <li>
                     <div class="checkBox">
                         <input type="checkbox" id="cb_1_5" name="carrosserie[]" value="5" />
-                        <label for="cb_1_5"><img class="grey" src="images/icons_searchbar/4X4_grey.png"><img class="red"
-                                src="images/icons_searchbar/4X4_red.png">
-                            4x4 SUV
+                        <label for="cb_1_5"><img class="grey" src="images/icons_searchbar/suv_grey.png"><img class="red"
+                                src="images/icons_searchbar/suv_red.png">
+                            SUV
                         </label></div>
                 </li>
                 <li>
@@ -162,30 +165,28 @@
                     <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#blogCarousel" data-slide-to="1"></li>
                 </ol>
-
                 <!-- Carousel items -->
                 <div class="carousel-inner">
-
                     <div class="carousel-item active">
                         <div class="row">
                             <div class="col-md-3">
                                 <a href="#">
-                                    <img src="images/audi_a3_blue.jpg" alt="Image" style="max-width:100%;">
+                                    <img src="images/audi_a3_blue.jpg" alt="audi_a3_blue" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-3">
                                 <a href="#">
-                                    <img src="images/bmw_1_white.jpg" alt="Image" style="max-width:100%;">
+                                    <img src="images/bmw_1_white.jpg" alt="bmw_1_white" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-3">
                                 <a href="#">
-                                    <img src="images/mercedes_a_lightgrey.jpg" alt="Image" style="max-width:100%;">
+                                    <img src="images/mercedes_a_lightgrey.jpg" alt="mercedes_a_lightgrey" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-3">
                                 <a href="#">
-                                    <img src="images/vw_golf_black.jpg" alt="Image" style="max-width:100%;">
+                                    <img src="images/vw_golf_black.jpg" alt="vw_golf_black" style="max-width:100%;">
                                 </a>
                             </div>
                         </div>
