@@ -10,42 +10,42 @@ CREATE TABLE `project_cars.t_booking` (
   PRIMARY KEY (`booking_id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE project_cars.t_cars (
-  car_id int(11) NOT NULL AUTO_INCREMENT,
-  car_brand varchar(20) NOT NULL,
-  car_model varchar(20) NOT NULL,
-  car_version varchar(45) NOT NULL,
-  car_body varchar(15) NOT NULL,
-  car_energy varchar(10) NOT NULL,
-  car_year int(4) NOT NULL,
-  car_mileage int(7) NOT NULL,
-  car_color varchar(20) NOT NULL,
-  car_doors int(2) NOT NULL,
-  car_places int(2) NOT NULL,
-  car_circulationdate date NOT NULL,
-  car_gearbox varchar(15) NOT NULL,
-  car_horsepower int(4) NOT NULL,
-  car_price int(7) NOT NULL,
-  PRIMARY KEY (car_id)
+CREATE TABLE `project_cars.t_cars` (
+  `car_id` int(11) NOT NULL AUTO_INCREMENT,
+  `car_brand` varchar(20) NOT NULL,
+  `car_model` varchar(20) NOT NULL,
+  `car_version` varchar(45) NOT NULL,
+  `car_body` varchar(15) NOT NULL,
+  `car_energy` varchar(10) NOT NULL,
+  `car_year` int(4) NOT NULL,
+  `car_mileage` int(7) NOT NULL,
+  `car_color` varchar(20) NOT NULL,
+  `car_doors` int(2) NOT NULL,
+  `car_places` int(2) NOT NULL,
+  `car_circulationdate` date NOT NULL,
+  `car_gearbox` varchar(15) NOT NULL,
+  `car_horsepower` int(4) NOT NULL,
+  `car_price` int(7) NOT NULL,
+  PRIMARY KEY (`car_id`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE project_cars.t_cars_equipments (
-  car_id int(11) NOT NULL,
-  equipment_id int(11) NOT NULL
+CREATE TABLE `project_cars.t_cars_equipments` (
+  `car_id` int(11) NOT NULL,
+  `equipment_id` int(11) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE project_cars.t_equipments (
-  equipment_id int(11) NOT NULL AUTO_INCREMENT,
-  equipment_text varchar(45) NOT NULL,
-  equipment_type enum('ext','int','sec') NOT NULL,
-  PRIMARY KEY (equipment_id)
+  `equipment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `equipment_text` varchar(45) NOT NULL,
+  `equipment_type` enum('ext','int','sec') NOT NULL,
+  PRIMARY KEY (`equipment_id`)
 ) ENGINE=InnoDB; 
 
-CREATE TABLE project_cars.t_images (
-  image_id int(11) NOT NULL,
-  image_link varchar(255) NOT NULL,
-  car_id int(11) NOT NULL,
-  PRIMARY KEY (image_id)
+CREATE TABLE `project_cars.t_images` (
+  `image_id` int(11) NOT NULL,
+  `image_link` varchar(255) NOT NULL,
+  `car_id` int(11) NOT NULL,
+  PRIMARY KEY (`image_id`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE project_cars.t_newsletters (

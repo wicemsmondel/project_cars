@@ -1,0 +1,19 @@
+<% for (let i = 0; i < data.length; i++) {%>
+    <p><%= data[i].car_model%></p>
+<% }%>
+
+module.exports.home = function (req, res) {
+    let promise = new Promise(function (success, reject) {
+        db.query('SELECT * FROM project_cars.t_cars', function (err, data) {
+            if (err) reject(err);
+            else success(data);
+        })
+    })
+        .then(data => {
+            res.render('index', { title: "Home", data });
+        })
+        .catch(err => console.log(err))
+
+
+
+};

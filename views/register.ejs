@@ -1,10 +1,7 @@
 <!-- views/register.ejs -->
 <% include partials/header %>
-
 <div class="login-background">
-
     <img class="background-image" src="images/car_dealer3nb.png">
-    <!-- <% if (typeof error !=='undefined'){ %><h3><%= error%></h3><% } %> -->
     <div class="form-popup" id="myForm">
         <form class=" form-container" method="post" action="/register">
             <% if (typeof error !=='undefined'){ %><h4 style="color: red"><%= error%></h4><% } %>
@@ -20,5 +17,5 @@
         </form>
     </div>
 </div>
-
 <% include partials/footer %>
+
