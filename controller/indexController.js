@@ -105,15 +105,11 @@ module.exports.catalog = function (req, res) {
 //     });
 // };
 
-module.exports.catalogBrand = function (req, res) {
-
-    var carBrand  = req.params.car_brand;
-    db.query("SELECT * FROM t_cars WHERE car_brand=?", carBrand,(err, data) => {
+module.exports.catalogBrand =  (req, res) => {
+    // var carBrand  = req.params.car_brand;
+    db.query("SELECT * FROM t_cars WHERE car_brand=?", req.params.car_brand,(err, data) => {
         if (err) res.render('index', { error: err, title: "Project Cars Accueil" });
         else
-        // console.log(req.params.car_brand, "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-            res.render('brand.ejs', { title: "Catalogue", cars: data });
-            console.log(__dirname, "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg")
-
+            res.render('catalog', { title: "Catalogue", cars: data });
     });
 };

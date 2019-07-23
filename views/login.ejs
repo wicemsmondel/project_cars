@@ -2,10 +2,8 @@
 <% include partials/header %>
 
 <div class="login-background">
-
-    <img class="background-image" src="images/car_dealer3nb.png">
-    <div id="myForm" class="form-popup" action="/login">
-        <form class=" form-container" method="POST">
+    <div id="myForm" class="form-popup">
+        <form class=" form-container" method="POST" action="/login">
             <% if (typeof error !=='undefined'){ %><h4 style="color: red"><%= error%></h4><% } %>
             <h2>Connectez-vous</h2>
             <input type="text" placeholder="Email" name="email" required>

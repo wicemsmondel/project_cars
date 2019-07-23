@@ -26,12 +26,6 @@ router.route('/catalog')
     .get(indexController.catalog);
 
 router.route('/catalog/:car_brand')
-.get(indexController.catalogBrand)
+    .get(indexController.catalogBrand);
 
-
-    //     db.all("SELECT * FROM Article NATURAL JOIN brand WHERE brand_name=?", req.params.brand, function (error, data) {
-    //         res.send(data);
-    //     });
-    // })
-
-    module.exports = router;
+module.exports = router;
