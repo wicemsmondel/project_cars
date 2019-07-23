@@ -1,5 +1,4 @@
 // Menu-toggle button
-
 $(document).ready(function() {
     $(".menu-icon").on("click", function() {
         $("nav ul").toggleClass("showing");
@@ -7,7 +6,6 @@ $(document).ready(function() {
 });
 
 // Scrolling Effect
-
 $(document).on("scroll", function() {
     if ($(document).scrollTop()) {
         $('nav').addClass('black');
@@ -17,8 +15,7 @@ $(document).on("scroll", function() {
 });
 
 
-//checkbox image switching color
- 
+//checkbox image switching color 
 $('.checkBox label img').on('click', function() {
     if ($(this).hasClass('active'))
         $(this).toggleClass('active');

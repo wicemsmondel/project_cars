@@ -6,21 +6,23 @@ var bcrypt = require("bcrypt");
 const db = require('../config/db');
 
 module.exports.home = function (req, res) {
-    db.query("SELECT DISTINCT  car_brand FROM `t_cars`",  (err, data)=> {
+    db.query("SELECT DISTINCT car_brand FROM `t_cars`", (err, data) => {
         if (err) res.render('index', { error: err, title: "Project Cars Accueil" });
-        else
-        res.render('index', { title: "Project Cars Accueil", cars: data });
+        else {
+            db.query("SELECT car_image FROM `t_cars` ORDER BY  car_id DESC LIMIT 4", (err, result) => {
+                db.query("SELECT DISTINCT car_model FROM `t_cars`", (err, resultat) => {
+                    res.render('index', { error: err, title: "Project Cars Accueil", brands: data, images: result, models: resultat });
+                });
+            });
+        };
     });
-    // db.query("SELECT car_image FROM `t_cars`",  (err, data)=> {
-    //     if (err) res.render('index', { error: err, title: "Project Cars Accueil" });
-    //     else
-    //     res.render('index', { title: "Project Cars Accueil", cars: data });
-    // });
 };
-
+//db.query("SELECT DISTINCT car_model FROM `t_cars`", (err, resultat))
 module.exports.login = function (req, res) {
-    if (req.session.user){console.log(req.session.user);
-        return res.redirect('/');}
+    if (req.session.user) {
+        console.log(req.session.user);
+        return res.redirect('/');
+    }
     if (req.method !== 'POST') res.render('login', { title: "Project Cars Connexion" });
     else {
         if (req.body.email && req.body.password) {
@@ -74,40 +76,19 @@ module.exports.admin = function (req, res) {
     res.render('admin', { title: "Administration" });
 };
 
-// module.exports.catalog = function (req, res) {
-//     let promise = new Promise(function (success, reject) {
-//         db.query('SELECT * FROM project_cars.t_cars', function (err, data) {
-//             if (err) reject(err);
-//             else success(data);
-//         })
-//     })
-//         .then(data => {
-//             res.render('catalog', { title: "Catalogue", data });
-//         })
-//         .catch(err => console.log(err))
-// };
-
 
 module.exports.catalog = function (req, res) {
-    db.query("SELECT * FROM `t_cars`",  (err, data)=> {
+    db.query("SELECT * FROM `t_cars`", (err, data) => {
         if (err) res.render('index', { error: err, title: "Project Cars Accueil" });
         else
-        res.render('catalog', { title: "Catalogue", cars: data });
+            res.render('catalog', { title: "Catalogue", cars: data });
         console.log(data)
     });
 };
-// module.exports.catalogBrand = function (req, res) {
-//     db.query("SELECT * FROM `t_cars` WHERE car_brand= "(.$carBrand)",  (err, data)=> {
-//         if (err) res.render('index', { error: err, title: "Project Cars Accueil" });
-//         else
-//         res.render('catalog', { title: "Catalogue", cars: data });
-    
-//     });
-// };
 
-module.exports.catalogBrand =  (req, res) => {
+module.exports.catalogBrand = (req, res) => {
     // var carBrand  = req.params.car_brand;
-    db.query("SELECT * FROM t_cars WHERE car_brand=?", req.params.car_brand,(err, data) => {
+    db.query("SELECT * FROM t_cars WHERE car_brand=?", req.params.car_brand, (err, data) => {
         if (err) res.render('index', { error: err, title: "Project Cars Accueil" });
         else
             res.render('catalog', { title: "Catalogue", cars: data });

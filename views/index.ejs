@@ -116,10 +116,10 @@
             <div class="brand-model-wrapper">
                 <div class="select">
                     <select class="brand form-control" name="brand[]" data-etalage="1" data-url="/versions"
-                        data-prompt="Choisir le modèle">
+                        data-prompt="Choisir le modèle" onchange="">
                         <option value="">Choisir la marque</option>
-                        <% cars.forEach ((car, index) => {%>
-                        <option value="<%= car.car_brand%>"><%= car.car_brand%></option>
+                        <% brands.forEach ((brand, index) => {%>
+                        <option value="<%= brand.car_brand%>"><%= brand.car_brand%></option>
                         <% })%>
 
                     </select></div>
@@ -127,9 +127,9 @@
                     <select class="model form-control" name="model[]" data-models-for="w2" data-etalage="1"
                         data-prompt="Choisir la version">
                         <option value="">Choisir le modèle</option>
-                        <% cars.forEach ((car, index) => {%>
-                            <option value="<%= car.car_model%>"><%= car.car_model%></option>
-                            <% })%>
+                        <% models.forEach ((model, index) => {%>
+                        <option value="<%=model.car_model%>"><%=model.car_model%></option>
+                        <% })%>
                     </select>
                 </div>
                 <div class="search-button">
@@ -158,27 +158,13 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row">
+                            <% images.forEach ((image, index) => {%>
                             <div class="col-md-3">
                                 <a href="#">
-                                    <img src="images/audi_a3_blue.jpg" alt="audi_a3_blue" style="max-width:100%;">
+                                    <img src="<%=image.car_image%>" alt="Image" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-3">
-                                <a href="#">
-                                    <img src="images/bmw_1_white.jpg" alt="bmw_1_white" style="max-width:100%;">
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#">
-                                    <img src="images/mercedes_a_lightgrey.jpg" alt="mercedes_a_lightgrey"
-                                        style="max-width:100%;">
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#">
-                                    <img src="images/vw_golf_black.jpg" alt="vw_golf_black" style="max-width:100%;">
-                                </a>
-                            </div>
+                            <% })%>
                         </div>
                         <!--.row-->
                     </div>
@@ -186,37 +172,26 @@
 
                     <div class="carousel-item">
                         <div class="row">
+                            <% for (let i = 0; i < 4 ; i++) {%>
                             <div class="col-md-3">
                                 <a href="#">
-                                    <img src="images/vw_touareg_grey.jpg" alt="Image" style="max-width:100%;">
+                                    <img src="<%=images[i].car_image%>" alt="Image" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-3">
-                                <a href="#">
-                                    <img src="images/porsche_cayenne_white.jpg" alt="Image" style="max-width:100%;">
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#">
-                                    <img src="images/mercedes_gla_black.jpg" alt="Image" style="max-width:100%;">
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="#">
-                                    <img src="images/bmw_x3_black.jpg" alt="Image" style="max-width:100%;">
-                                </a>
-                            </div>
-                        </div>
-                        <!--.row-->
+                            <% }%></div>
                     </div>
-                    <!--.item-->
+                    <!--.row-->
                 </div>
-                <!--.carousel-inner-->
+                <!--.item-->
             </div>
-            <!--.Carousel-->
+            <!--.carousel-inner-->
         </div>
+        <!--.Carousel-->
     </div>
 </div>
+</div>
+
+
 
 <div class="brand-container">
 
@@ -226,9 +201,10 @@
     </div>
 
 
-    <% cars.forEach ((car, index) => {%>
-    <a href="/catalog/<%= car.car_brand%>">
-        <img class="brand-image" src="images/logo_brands/<%= car.car_brand%>.png" alt="<%= car.car_brand%> logo" name="<%= car.car_brand%>">
+    <% brands.forEach ((brand, index) => {%>
+    <a href="/catalog/<%= brand.car_brand%>">
+        <img class="brand-image" src="images/logo_brands/<%= brand.car_brand%>.png" alt="<%= brand.car_brand%> logo"
+            name="<%= brand.car_brand%>">
     </a>
     <% })%>
 

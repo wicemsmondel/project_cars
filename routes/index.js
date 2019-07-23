@@ -29,3 +29,13 @@ router.route('/catalog/:car_brand')
     .get(indexController.catalogBrand);
 
 module.exports = router;
+
+
+
+
+// <% brands.forEach ((brand, index) => {%>
+//     <a href="/catalog/<%= car.car_brand%>">
+//         <img class="brand-image" src="images/logo_brands/<%= brand.car_brand%>.png" alt="<%= brand.car_brand%> logo"
+//             name="<%= brand.car_brand%>">
+//     </a>
+//     <% })%></a>
