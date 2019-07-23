@@ -158,27 +158,27 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row">
-                            <% images.forEach ((image, index) => {%>
-                            <div class="col-md-3">
-                                <a href="#">
-                                    <img src="<%=image.car_image%>" alt="Image" style="max-width:100%;">
-                                </a>
-                            </div>
-                            <% })%>
+                                <% for (let i = 0; i < 4 ; i++) {%>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <img src="<%=images[i].car_image%>" alt="Image" style="max-width:100%;">
+                                        </a>
+                                    </div>
+                                    <% }%>
                         </div>
                         <!--.row-->
                     </div>
                     <!--.item-->
-
                     <div class="carousel-item">
                         <div class="row">
-                            <% for (let i = 0; i < 4 ; i++) {%>
+                            <% for (let i = 4; i < 8 ; i++) {%>
                             <div class="col-md-3">
                                 <a href="#">
                                     <img src="<%=images[i].car_image%>" alt="Image" style="max-width:100%;">
                                 </a>
                             </div>
-                            <% }%></div>
+                            <% }%>
+                        </div>
                     </div>
                     <!--.row-->
                 </div>

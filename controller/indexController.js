@@ -9,7 +9,7 @@ module.exports.home = function (req, res) {
     db.query("SELECT DISTINCT car_brand FROM `t_cars`", (err, data) => {
         if (err) res.render('index', { error: err, title: "Project Cars Accueil" });
         else {
-            db.query("SELECT car_image FROM `t_cars` ORDER BY  car_id DESC LIMIT 4", (err, result) => {
+            db.query("SELECT car_image FROM `t_cars` ORDER BY  car_id DESC LIMIT 8", (err, result) => {
                 db.query("SELECT DISTINCT car_model FROM `t_cars`", (err, resultat) => {
                     res.render('index', { error: err, title: "Project Cars Accueil", brands: data, images: result, models: resultat });
                 });
