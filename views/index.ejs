@@ -13,10 +13,10 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="images/home2nb.png" alt="Audi R8">
+            <img class="d-block w-100" src="images/home1.png" alt="Audi R8">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="images/home4nb.png" alt="Bugatti Veyron">
+            <img class="d-block w-100" src="images/home2.png" alt="Bugatti Veyron">
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="images/home3.png" alt="Audi S8">
@@ -37,99 +37,38 @@
 
 <div class="search-form">
     <div class="versions">
-        <form id="w1" action="versions/search" method="get"> <input type="hidden" name="expand" value="1" />
-
+        <form id="w1" action="/catalog" method="get" name="expand">
             <ul id="carrosserie">
+                <% bodies.forEach ((body, index) => {%>
                 <li>
+
                     <div class="checkBox">
-                        <input type="checkbox" id="cb_1_1" name="carrosserie[]" value="1" />
-                        <label for="cb_1_1"><img class="grey" src="images/icons_searchbar/citadine_grey.png"><img
-                                class="red" src="images/icons_searchbar/citadine_red.png">
-                            Citadine
+                        <input type="checkbox" id="cb_<%= body.car_body%>" name="carrosserie[]" value="<%= body.car_body%>" />
+                        <label for="cb_<%= body.car_body%>"><img class="grey"
+                                src="images/icons_searchbar/<%= body.car_body%>_grey.png"><img class="red"
+                                src="images/icons_searchbar/<%= body.car_body%>_red.png">
+                            <%= body.car_body%>
                         </label>
                     </div>
                 </li>
-                <li>
-                    <div class="checkBox">
-                        <input type="checkbox" id="cb_1_2" name="carrosserie[]" value="2" />
-                        <label for="cb_1_2"><img class="grey" src="images/icons_searchbar/berline_grey.png"><img
-                                class="red" src="images/icons_searchbar/berline_red.png">
-                            Berline
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <div class="checkBox">
-                        <input type="checkbox" id="cb_1_3" name="carrosserie[]" value="3" />
-                        <label for="cb_1_3"><img class="grey" src="images/icons_searchbar/coupe_grey.png"><img
-                                class="red" src="images/icons_searchbar/coupe_red.png">
-                            Coupé
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <div class="checkBox">
-                        <input type="checkbox" id="cb_1_4" name="carrosserie[]" value="4" />
-                        <label for="cb_1_4"><img class="grey" src="images/icons_searchbar/cabriolet_grey.png"><img
-                                class="red" src="images/icons_searchbar/cabriolet_red.png">
-                            Cabriolet
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <div class="checkBox">
-                        <input type="checkbox" id="cb_1_5" name="carrosserie[]" value="5" />
-                        <label for="cb_1_5"><img class="grey" src="images/icons_searchbar/suv_grey.png"><img class="red"
-                                src="images/icons_searchbar/suv_red.png">
-                            SUV
-                        </label></div>
-                </li>
-                <li>
-                    <div class="checkBox">
-                        <input type="checkbox" id="cb_1_6" name="carrosserie[]" value="8" />
-                        <label for="cb_1_6"><img class="grey" src="images/icons_searchbar/pick-up_grey.png"><img
-                                class="red" src="images/icons_searchbar/pick-up_red.png">
-                            Pick-up
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <div class="checkBox">
-                        <input type="checkbox" id="cb_1_7" name="carrosserie[]" value="7" />
-                        <label for="cb_1_7"><img class="grey" src="images/icons_searchbar/utilitaire_grey.png"><img
-                                class="red" src="images/icons_searchbar/utilitaire_red.png">
-                            Utilitaire
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <div class="checkBox">
-                        <input type="checkbox" id="cb_1_8" name="carrosserie[]" value="6" />
-                        <label for="cb_1_8"><img class="grey" src="images/icons_searchbar/monospace_grey.png"><img
-                                class="red" src="images/icons_searchbar/monospace_red.png">
-                            Monospace
-                        </label>
-                    </div>
-                </li>
+                <% })%>
             </ul>
 
             <div class="brand-model-wrapper">
                 <div class="select">
-                    <select class="brand form-control" name="brand[]" data-etalage="1" data-url="/versions"
-                        data-prompt="Choisir le modèle" onchange="">
-                        <option value="">Choisir la marque</option>
+                    <select class="brand form-control" name="brand" data-prompt="Choisir la marque" onchange="">
+                        <option selected disabled value="">Choisir la marque</option>
                         <% brands.forEach ((brand, index) => {%>
                         <option value="<%= brand.car_brand%>"><%= brand.car_brand%></option>
                         <% })%>
 
                     </select></div>
                 <div class="select">
-                    <select class="model form-control" name="model[]" data-models-for="w2" data-etalage="1"
-                        data-prompt="Choisir la version">
-                        <option value="">Choisir le modèle</option>
+                    <select class="brand form-control" name="model" data-prompt="Choisir le modèle">
+                        <option selected disabled value="">Choisir le modèle</option>
                         <% models.forEach ((model, index) => {%>
-                        <option value="<%=model.car_model%>"><%=model.car_model%></option>
-                        <% })%>
+                        <option value="<%=model.car_model%>"><%=model.car_model%></optzion>
+                            <% })%>
                     </select>
                 </div>
                 <div class="search-button">
@@ -158,13 +97,13 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row">
-                                <% for (let i = 0; i < 4 ; i++) {%>
-                                    <div class="col-md-3">
-                                        <a href="#">
-                                            <img src="<%=images[i].car_image%>" alt="Image" style="max-width:100%;">
-                                        </a>
-                                    </div>
-                                    <% }%>
+                            <% for (let i = 0; i < 4 ; i++) {%>
+                            <div class="col-md-3">
+                                <a href="#">
+                                    <img src="<%=images[i].car_image%>" alt="Image" style="max-width:100%;">
+                                </a>
+                            </div>
+                            <% }%>
                         </div>
                         <!--.row-->
                     </div>

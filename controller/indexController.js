@@ -1,4 +1,3 @@
-
 var mysql = require('mysql');
 var User = require('../models/userModel');
 var session = require('express-session');
@@ -11,16 +10,17 @@ module.exports.home = function (req, res) {
         else {
             db.query("SELECT car_image FROM `t_cars` ORDER BY  car_id DESC LIMIT 8", (err, result) => {
                 db.query("SELECT DISTINCT car_model FROM `t_cars`", (err, resultat) => {
-                    res.render('index', { error: err, title: "Project Cars Accueil", brands: data, images: result, models: resultat });
+                    db.query("SELECT DISTINCT car_body FROM `t_cars` ORDER BY  car_body ASC", (err, donnees) =>{
+                        res.render('index', { error: err, title: "Project Cars Accueil", brands: data, images: result, models: resultat, bodies: donnees });
+                    });      
                 });
             });
         };
     });
 };
-//db.query("SELECT DISTINCT car_model FROM `t_cars`", (err, resultat))
+
 module.exports.login = function (req, res) {
     if (req.session.user) {
-        console.log(req.session.user);
         return res.redirect('/');
     }
     if (req.method !== 'POST') res.render('login', { title: "Project Cars Connexion" });
@@ -30,11 +30,14 @@ module.exports.login = function (req, res) {
                 if (err) res.render('login', { error: err, title: "Project Cars Connexion" });
                 else if (typeof user[0] == 'undefined') res.render('login', { error: "Cet utilisateur n\'existe pas !", title: "Project Cars Connexion" });
                 else {
-                    // console.log(user[0].user_password);
-
                     bcrypt.compare(req.body.password, user[0].user_password).then(function (response) {
                         if (response) {
-                            req.session.user = user;
+                            req.session.user = user[0];
+                            console.log(user);
+                            if (user[0].user_status==2) {
+                                console.log("user");
+                                return res.redirect('/admin');
+                            }
                             return res.redirect('/');
                         } else {
                             res.render('login', { error: 'Mot de passe incorrect !', title: "Project Cars Connexion" });
@@ -44,7 +47,6 @@ module.exports.login = function (req, res) {
             });
         }
     }
-
 };
 
 module.exports.register = function (req, res) {
@@ -73,6 +75,8 @@ module.exports.logout = function (req, res) {
 };
 
 module.exports.admin = function (req, res) {
+    // if req.session.user.user_status === 2
+
     res.render('admin', { title: "Administration" });
 };
 

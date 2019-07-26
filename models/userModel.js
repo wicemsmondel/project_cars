@@ -19,9 +19,9 @@ exports.getuser = function(email, cb) {
     });
 }
 
-// exports.getadmin = function(email, cb) {
-//     db.query("SELECT  user_email, user_password, user_status FROM project_cars.t_users WHERE user_status = 2", [email], function(err, result, fields) {
-//         if (err) throw err;
-//         return cb(null, result);
-//     });
-// }
+exports.getadmin = function(email, cb) {
+    db.query("SELECT  user_email, user_password, user_status FROM project_cars.t_users WHERE user_status = 2", [email], function(err, result, fields) {
+        if (err) throw err;
+        return cb(null, result);
+    });
+}

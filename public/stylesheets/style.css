@@ -105,8 +105,7 @@ footer {
     z-index: 2;
 }
 
-.form-popup,
-.add-player-form {
+.form-popup {
     display: block;
     position: fixed;
     top: 250px;
@@ -230,9 +229,8 @@ footer {
     height: 40px;
     width: 120px;
     margin-top: -40px;
-    margin-left: -20px;
-    position: absolute;
-    /* backface-visibility: unset; */
+    margin-left: -30px;
+    position: absolute;    
 }
 
 .red {
@@ -283,6 +281,10 @@ ul {
     padding-inline-start: 0 !important;
 }
 
+.background {
+    background-color: #a3a3a3;
+}
+
 @media (max-device-width: 1050px) {
     #logo {
         position: fixed;
@@ -310,11 +312,7 @@ ul {
         display: block;
         z-index: 9;
     }
-    /* .carousel-indicators,
-    .carousel-control-prev,
-    .carousel-control-next {
-        display: none;
-    } */
+    
     #carouselLanding .carousel-item {
         margin-top: 90px;
     }
@@ -403,13 +401,13 @@ ul {
     .brand-container a {
         margin: 20px 1px;
     }
-    .preview-title {
+    .preview-title, .brand-title {
         margin-top: -80px;
     }
-    .preview-title h2 {
+    .preview-title h2, .brand-title h2 {
        font-size: 20px;
     }
-    .preview-title h3 {
+    .preview-title h3, .brand-title h3 {
         font-size: 15px;
      }
 }
