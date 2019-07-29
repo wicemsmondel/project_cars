@@ -2,38 +2,81 @@
 <%include partials/header%>
 
 <div class="login-background">
-        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="first_name" id="first-name" placeholder="First Name" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="last_name" id="last-name" placeholder="Last Name" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
-                </div>
+    <form class="add-car-form" action="" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-3 ">
+                <input type="text" class="form-control" name="brand" placeholder="Marque" required>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="number" class="form-control" name="number" id="number" placeholder="Number" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <select id="position" name="position" class="form-control" required>
-                        <option selected disabled>Choose position</option>
-                        <option>Goalkeeper</option>
-                        <option>Defender</option>
-                        <option>Midfielder</option>
-                        <option>Forward</option>
-                    </select>
-                </div>
-                <div class="col-md-12">
-                    <label for="player-img"><b>Player Image</b></label><br>
-                    <input type="file" name="image" id="player-img" class="" required>
-                </div>
+            <div class="form-group col-md-3">
+                <input type="text" class="form-control" name="model" placeholder="Modèle" required>
             </div>
-            <button type="submit" class="btn btn-primary float-right">Add Player</button>
-        </form>
+            <div class="form-group col-md-3">
+                <input type="text" class="form-control" name="version" placeholder="Version" required>
+            </div>
+            <div class="form-group col-md-3">
+                <select name="energy" class="form-control" required>
+                    <option selected disabled>Energie</option>
+                    <option>diesel</option>
+                    <option>essence</option>
+                    <option>electrique</option>
+                    <option>hybride</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <input type="number" class="form-control" name="price" placeholder="Prix" required>
+            </div>
+            <div class="form-group col-md-3">
+                <input type="number" class="form-control" name="year" placeholder="Année" required>
+            </div>
+            <div class="form-group col-md-3">
+                <input type="number" class="form-control" name="mileage" placeholder="Kilométrage" required>
+            </div>
+            <div class="form-group col-md-3">
+                <input type="number" class="form-control" name="horsepower" placeholder="Puissance ch" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <select name="bodywork" class="form-control" required>
+                    <option selected disabled>Carrosserie</option>
+                    <option>berline</option>
+                    <option>cabriolet</option>
+                    <option>compacte</option>
+                    <option>coupe</option>
+                    <option>monospace</option>
+                    <option>pickup</option>
+                    <option>suv</option>
+                    <option>utilitaire</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <input type="text" class="form-control" name="color" placeholder="Couleur" required>
+            </div>
+            <div class="form-group col-md-3">
+                <input type="number" class="form-control" name="doors" placeholder="Nombre de portes" required>
+            </div>
+            <div class="form-group col-md-3">
+                <input type="number" class="form-control" name="places" placeholder="Nombre de places" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea class="form-control"  rows="1"></textarea>             </div>
+            <div class="col-md-3">
+                <label for="car-img"><span>Car Image</sp></label><br>
+                <input type="file" class="form-control-file" name="image" class="" required>
+            </div>
+            <div>
+                    <button type="submit" class="btn btn-primary float-right">Add Car</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
 </div>
 
 <% include partials/footer.ejs %>

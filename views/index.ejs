@@ -37,29 +37,29 @@
 
 <div class="search-form">
     <div class="versions">
-        <form id="w1" action="/catalog" method="get" name="expand">
+        <form id="w1"  method="get" action="/catalog" name="expand">
             <ul id="carrosserie">
-                <% bodies.forEach ((body, index) => {%>
+                <% bodyworks.forEach ((bodywork, index) => {%>
                 <li>
-
                     <div class="checkBox">
-                        <input type="checkbox" id="cb_<%= body.car_body%>" name="carrosserie[]" value="<%= body.car_body%>" />
-                        <label for="cb_<%= body.car_body%>"><img class="grey"
-                                src="images/icons_searchbar/<%= body.car_body%>_grey.png"><img class="red"
-                                src="images/icons_searchbar/<%= body.car_body%>_red.png">
-                            <%= body.car_body%>
+                        <input type="checkbox" id="checkBox2" name="bodywork[]" value=<%= bodywork.car_body%> />
+                        <label for="cb_<%= bodywork.car_body%>"><img class="grey"
+                                src="images/icons_searchbar/<%= bodywork.car_body%>_grey.png"><img class="red"
+                                src="images/icons_searchbar/<%= bodywork.car_body%>_red.png">
+                            <%= bodywork.car_body%>
                         </label>
                     </div>
                 </li>
                 <% })%>
             </ul>
+            
 
             <div class="brand-model-wrapper">
                 <div class="select">
-                    <select class="brand form-control" name="brand" data-prompt="Choisir la marque" onchange="">
+                    <select class="brand form-control" name="brand" data-prompt="Choisir la marque">
                         <option selected disabled value="">Choisir la marque</option>
                         <% brands.forEach ((brand, index) => {%>
-                        <option value="<%= brand.car_brand%>"><%= brand.car_brand%></option>
+                        <option value=<%= brand.car_brand%>><%= brand.car_brand%></option>
                         <% })%>
 
                     </select></div>

@@ -10,9 +10,9 @@ module.exports.home = function (req, res) {
         else {
             db.query("SELECT car_image FROM `t_cars` ORDER BY  car_id DESC LIMIT 8", (err, result) => {
                 db.query("SELECT DISTINCT car_model FROM `t_cars`", (err, resultat) => {
-                    db.query("SELECT DISTINCT car_body FROM `t_cars` ORDER BY  car_body ASC", (err, donnees) =>{
-                        res.render('index', { error: err, title: "Project Cars Accueil", brands: data, images: result, models: resultat, bodies: donnees });
-                    });      
+                    db.query("SELECT DISTINCT car_body FROM `t_cars` ORDER BY  car_body ASC", (err, donnees) => {
+                        res.render('index', { error: err, title: "Project Cars Accueil", brands: data, images: result, models: resultat, bodyworks: donnees });
+                    });
                 });
             });
         };
@@ -34,7 +34,7 @@ module.exports.login = function (req, res) {
                         if (response) {
                             req.session.user = user[0];
                             console.log(user);
-                            if (user[0].user_status==2) {
+                            if (user[0].user_status == 2) {
                                 console.log("user");
                                 return res.redirect('/admin');
                             }
@@ -82,16 +82,49 @@ module.exports.admin = function (req, res) {
 
 
 module.exports.catalog = function (req, res) {
-    db.query("SELECT * FROM `t_cars`", (err, data) => {
-        if (err) res.render('index', { error: err, title: "Project Cars Accueil" });
-        else
-            res.render('catalog', { title: "Catalogue", cars: data });
-        console.log(data)
-    });
+    let brand = req.query.brand;
+    let model = req.query.model;
+    let bodywork = req.query.bodywork;
+    // console.log(req);
+    let strQuery = "SELECT * FROM `t_cars`";
+    let bAdd = 0;
+
+    if (brand != undefined){
+        bAdd=1;
+        
+        strQuery += " WHERE car_brand LIKE " + mysql.escape(brand);
+    }
+    if (model != undefined){        
+        if (!bAdd)
+            strQuery += " WHERE ";
+        else 
+            strQuery += " AND ";
+        bAdd = 1;
+        strQuery += " car_model LIKE " + mysql.escape(model);
+    }
+    // console.log(strQuery);
+    if (bodywork != undefined) {
+        if (!bAdd) 
+            strQuery += " WHERE ";
+        else 
+            strQuery += " AND ";        
+            
+        strQuery += " car_body LIKE " + mysql.escape(bodywork);
+    }
+// db.query("SELECT * FROM `t_cars` WHERE car_brand = ? AND car_model = ? AND car_body = ?", {car_brand: brand, car_model: model, car_body: bodywork}
+
+    db.query(strQuery , (err, data) => {
+            if (err) {
+                console.log(err);
+                res.render('catalog', { error: err, title: "Project Cars Accueil" });
+            }
+            else
+                res.render('catalog', { title: "Catalogue", cars: data });
+            // console.log(data)
+        });
 };
 
 module.exports.catalogBrand = (req, res) => {
-    // var carBrand  = req.params.car_brand;
     db.query("SELECT * FROM t_cars WHERE car_brand=?", req.params.car_brand, (err, data) => {
         if (err) res.render('index', { error: err, title: "Project Cars Accueil" });
         else
