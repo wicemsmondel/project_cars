@@ -1,18 +1,18 @@
 <!-- views/catalog.ejs -->
 <%include partials/header%>
 
-<div class="background container-fluid p-5">
-       
-    <div class="cars-wrapper row ">
+<div class="background container-fluid pt-5">
+
+    <div class="cars-wrapper row">
         <% cars.forEach ((car, index) => {%>
-        <div class="car-container col-lg-4 col-md-6 p-5">
+        <div class="car-container  col-lg-4 col-md-6 p-1">
             <div class="car-title align-items-center text-center text-uppercase p-1">
                 <span><%=car.car_brand%></span>
                 <span><%=car.car_model%></span>
             </div>
             <div class="overlay2">
                 <div><img class="img-fluid" src="/<%=car.car_image%>"></div>
-                
+
                 <div class="overlay">
                     <a href="/catalog/<%= car.car_brand%>/<%= car.car_model%>" class="text">Voir ce véhicule</a>
                 </div>
@@ -25,10 +25,9 @@
         </div>
         <% })%>
     </div>
-    <div class="display-all-brands">
+    <div class="offset-md-3 col-md-6 text-center p-5">
         <a href="/catalog" class="btn btn-danger">Tous les modèles</a>
     </div>
 </div>
-
 
 <%include partials/footer%>

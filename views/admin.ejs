@@ -1,7 +1,7 @@
 <!-- views/admin.ejs -->
 <%include partials/header%>
 
-<div class="login-background">
+<div class="background">
     <form class="add-car-form" action="" method="post" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-3 ">
@@ -63,20 +63,17 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-8">
-                    <label for="exampleFormControlTextarea1">Description</label>
-                    <textarea class="form-control"  rows="1"></textarea>             </div>
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea class="form-control" rows="1"></textarea> </div>
             <div class="col-md-3">
                 <label for="car-img"><span>Car Image</sp></label><br>
                 <input type="file" class="form-control-file" name="image" class="" required>
             </div>
             <div>
-                    <button type="submit" class="btn btn-primary float-right">Add Car</button>
+                <button type="submit" class="btn btn-primary float-right">Add Car</button>
             </div>
         </div>
-
     </form>
-
-</div>
 </div>
 
 <% include partials/footer.ejs %>

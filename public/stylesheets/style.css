@@ -2,11 +2,11 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height:100%;
+    height: 100%;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    
 }
+
 #logo {
     height: 94px;
     width: 200px;
@@ -22,6 +22,8 @@ nav {
 }
 
 nav ul {
+    /* display: flex;
+    justify-content: space-evenly; */
     line-height: 93px;
     list-style: none;
     background: rgb(0, 0, 0, 0);
@@ -38,8 +40,9 @@ nav.black ul {
 
 nav ul li {
     display: inline-block;
-    padding: 0px 0px 0px 80px;
-    ;
+    text-align: center;
+    padding: 0px 0px 0px 150px;
+    /* float: left; */
 }
 
 nav ul li a {
@@ -55,7 +58,6 @@ nav li a:hover,
     color: #fff;
     border-radius: 5px;
     text-decoration: none;
-    /* padding: 30px; */
 }
 
 .menu-icon {
@@ -77,7 +79,7 @@ nav li a:hover,
 
 footer {
     /* position: absolute; */
-     /* bottom: 0; 
+    /* bottom: 0; 
      left: 0; 
      right: 0; */
     display: flex;
@@ -96,7 +98,8 @@ footer {
     z-index: 2;
 }
 
-.btn-danger, .btn-success {
+.btn-danger,
+.btn-success {
     color: #fff;
     padding: 20px;
     cursor: pointer;
@@ -137,7 +140,8 @@ footer {
 .form-container input[type=password]:focus {
     background-color: #ddd;
 }
-#checkboxCGU{
+
+#checkboxCGU {
     width: auto;
 }
 
@@ -213,9 +217,12 @@ footer {
     justify-content: space-around;
     flex-wrap: wrap;
 }
-#checkBox2{
+
+
+/* #checkBox2{
     display: none;
-}
+} */
+
 .search-form ul li {
     list-style-type: none;
     justify-items: center;
@@ -237,7 +244,7 @@ footer {
     width: 120px;
     margin-top: -40px;
     margin-left: -30px;
-    position: absolute;    
+    position: absolute;
 }
 
 .red {
@@ -257,6 +264,25 @@ footer {
     left: 0;
     top: auto;
     bottom: -40px;
+}
+
+.cars-wrapper {
+    margin-top: 50px;
+}
+
+
+/* .car-container {
+    background: #ff0000;
+    
+    border-radius: 20px;
+
+}  */
+
+.car-title,
+.car-bottom {
+    background: #000;
+    color: #e0e0e0;
+    font-size: 20px;
 }
 
 
@@ -287,6 +313,7 @@ footer {
 ul {
     padding-inline-start: 0 !important;
 }
+
 .overlay {
     position: absolute;
     bottom: 0;
@@ -297,26 +324,29 @@ ul {
     width: 100%;
     height: 0;
     transition: .5s ease;
-  }
-  
-  .overlay2:hover .overlay {
-    height: 80%;
-  }
-  .overlay a{
+}
+
+.overlay2:hover .overlay {
+    height: 100%;
+}
+
+.overlay a {
     background-color: rgb(255, 0, 0);
     color: white;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 16px;
     padding: 16px 32px;
-  }
-.overlay a:hover{
+}
+
+.overlay a:hover {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
 }
+
 .text {
     color: white;
     font-size: 20px;
@@ -327,17 +357,19 @@ ul {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-  }
+}
 
 .background {
     background-color: #b9b9b9;
-    min-height:100%;
-    margin:0 auto;
-    position:relative;
+    min-height: 100%;
+    margin: 0 auto;
+    position: relative;
 }
+
 .add-car-form {
-    background: #707070;
-    padding-top: 230px;
+    /* background: #707070; */
+    /* margin:50px; */
+    padding-top: 150px;
 }
 
 @media (max-device-width: 1050px) {
@@ -367,14 +399,16 @@ ul {
         display: block;
         z-index: 9;
     }
-    
     #carouselLanding .carousel-item {
         margin-top: 90px;
     }
     .search-form ul li {
         list-style-type: none;
         display: inline-block;
-        margin: 80px 70px 0px 60px;
+        /* margin: 80px 70px 0px 60px; */
+    }
+    .search-form ul li img {
+        margin-left: -40px;
     }
     .grey,
     .red {
@@ -383,8 +417,8 @@ ul {
         margin-top: -50px;
     }
     .form-popup {
-        top: 30%;
-        left: 25%;
+        top: 20%;
+        left: 18%;
     }
     .preview-title {
         margin-top: -60px;
@@ -416,7 +450,7 @@ ul {
     .search-form ul li img {
         height: 20px;
         width: 55px;
-        margin-left: -10px;
+        margin-left: -25px;
         margin-top: -25px;
     }
     /* .search-form ul li {
@@ -442,7 +476,8 @@ ul {
         font-size: 12px;
     }
     .search-button .btn.btn-danger,
-    .display-all-brands .btn.btn-danger {
+    .btn.btn-danger,
+    .btn-success {
         font-size: 12px;
         padding: 10px;
     }
@@ -456,13 +491,16 @@ ul {
     .brand-container a {
         margin: 20px 1px;
     }
-    .preview-title, .brand-title {
+    .preview-title,
+    .brand-title {
         margin-top: -80px;
     }
-    .preview-title h2, .brand-title h2 {
-       font-size: 20px;
+    .preview-title h2,
+    .brand-title h2 {
+        font-size: 20px;
     }
-    .preview-title h3, .brand-title h3 {
+    .preview-title h3,
+    .brand-title h3 {
         font-size: 15px;
-     }
+    }
 }
